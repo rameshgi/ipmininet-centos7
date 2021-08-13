@@ -11,7 +11,7 @@ from setuptools import setup, find_packages
 from setuptools.command.develop import develop
 from setuptools.command.install import install
 
-VERSION = '0.9'
+VERSION = '1.0'
 
 modname = distname = 'ipmininet'
 
@@ -81,8 +81,8 @@ setup(
     version=VERSION,
     description='A mininet extension providing components to emulate IP'
                 'networks running multiple protocols.',
-    author='Olivier Tilmans',
-    author_email='olivier.tilmans@uclouvain.be',
+    author='Olivier Tilmans, Mathieu Jadin',
+    author_email='olivier.tilmans@uclouvain.be, mathieu.jadin@uclouvain.be',
     packages=find_packages(),
     include_package_data=True,
     classifiers=[

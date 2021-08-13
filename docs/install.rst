@@ -32,7 +32,7 @@ and then, execute the following commands:
 
 .. code-block:: bash
 
-    $ vagrant init ipmininet/ubuntu-18.04
+    $ vagrant init ipmininet/ubuntu-20.04
     $ vagrant up
 
 This will create the VM. To access the VM with SSH, just issue the
@@ -42,7 +42,7 @@ following command in the same directory as the two previous one:
 
     $ vagrant ssh
 
-.. _vagrant box: https://app.vagrantup.com/ipmininet/boxes/ubuntu-18.04
+.. _vagrant box: https://app.vagrantup.com/ipmininet/boxes/ubuntu-20.04
 .. _Vagrant: https://www.vagrantup.com/downloads.html
 .. _Virtualbox: https://www.virtualbox.org/wiki/Downloads
 

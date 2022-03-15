@@ -50,18 +50,18 @@ Manual installation
 -------------------
 
 You can download and install IPMininet.
-You can change the installed version by replacing "v1.0" in the following commands.
+You can change the installed version by replacing "v1.1" in the following commands.
 If you have pip above **18.1**, execute:
 
 .. code-block:: bash
 
-    $ sudo pip install --upgrade git+https://github.com/cnp3/ipmininet.git@v1.0
+    $ sudo pip install --upgrade git+https://github.com/cnp3/ipmininet.git@v1.1
 
 If you have an older version of pip, use:
 
 .. code-block:: bash
 
-    $ sudo pip install --process-dependency-links --upgrade git+https://github.com/cnp3/ipmininet.git@v1.0
+    $ sudo pip install --process-dependency-links --upgrade git+https://github.com/cnp3/ipmininet.git@v1.1
 
 Then, you can install all the daemons:
 

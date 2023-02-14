@@ -108,6 +108,12 @@ class Fedora(Distribution):
     UPDATE_CMD = "true"
     PIP_CMD = "pip"
 
+class CentOS(Distribution):
+    NAME = "CentOS"
+    INSTALL_CMD = "yum -y install"
+    UPDATE_CMD = "true"
+    PIP_CMD = "pip3"
+
 
 def supported_distributions() -> List[Type]:
     return Distribution.__subclasses__()
@@ -125,5 +131,8 @@ def identify_distribution() -> Optional[Distribution]:
 
     if os.path.exists("/etc/fedora-release"):
         return Fedora()
+
+    if os.path.exists("/etc/centos-release"):
+        return CentOS()
 
     return None

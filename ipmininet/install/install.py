@@ -7,14 +7,14 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from utils import supported_distributions, identify_distribution, sh
 
-MininetVersion = "2.3.0"
+MininetVersion = "v2.3.0-centos"
 FRRoutingVersion = "7.5"
 LibyangVersion = "v1.0.215"
 ExaBGPVersion = "4.2.11"
 
 # XXX: We need the explicit script until the following issue is fixed:
 #      https://github.com/mininet/mininet/issues/1120
-MininetInstallCommit = "c3ba039a9781c6c5f475b7c88ff577185747a1da"
+MininetInstallCommit = "609b8c4b6c95bf48d19443359e97c9c988cf03b1"
 
 os.environ["PATH"] = "%s:/sbin:/usr/sbin/:/usr/local/sbin" % os.environ["PATH"]
 
@@ -68,22 +68,22 @@ def install_mininet(output_dir: str, pip_install=True):
     else:
         mininet_opts = "-a"
 
-    sh("git clone https://github.com/mininet/mininet.git", cwd=output_dir)
+    sh("git clone https://github.com/rameshgi/mininet_centos7.git", cwd=output_dir)
     # Save valid version of mininet install script
-    sh("git checkout %s" % MininetInstallCommit,
-       cwd=os.path.join(output_dir, "mininet/util"))
-    sh("cp install.sh install.tmp.sh",
-       cwd=os.path.join(output_dir, "mininet/util"))
+    #sh("git checkout %s" % MininetInstallCommit,
+    #   cwd=os.path.join(output_dir, "mininet/util"))
+    #sh("cp install.sh install.tmp.sh",
+    #   cwd=os.path.join(output_dir, "mininet/util"))
     # Use it in the fixed version of Mininet
-    sh("git checkout %s" % MininetVersion,
-       cwd=os.path.join(output_dir, "mininet/util"))
-    sh("mv install.tmp.sh install.sh",
-       cwd=os.path.join(output_dir, "mininet/util"))
+    sh("git checkout tags/%s" % MininetVersion,
+       cwd=os.path.join(output_dir, "mininet_centos7/util"))
+    #sh("mv install.tmp.sh install.sh",
+    #   cwd=os.path.join(output_dir, "mininet/util"))
     sh("./install.sh %s -s ." % mininet_opts,
-       cwd=os.path.join(output_dir, "mininet/util"))
+       cwd=os.path.join(output_dir, "mininet_centos7/util"))
 
     if pip_install:
-        dist.pip_install("mininet/", cwd=output_dir)
+        dist.pip_install("mininet_centos7/", cwd=output_dir)
 
 
 def install_libyang(output_dir: str):
